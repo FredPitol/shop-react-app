@@ -33,8 +33,8 @@ export default function App() {
 4. Fazemos a importação do react:  ```import React from "react";```
 5. Importação do arquivo para permitir o acesso a ele 
 	1. ```import { Text } from 'react-native';```
-	2. ```export default function Cesta(){}
-6. Retornamos o código que queremos mostra
+	2. ```export default function Cesta(){}```
+6. Retornamos o código que queremos mostrar
 	1. ```return <Text>Cesta</Text>```
 
 ```javascript
@@ -48,21 +48,21 @@ export default function Cesta() {
 
 # Estilizando 
 1. Deletamos a pré estilização presente ``` App.js```
-```
+```javascript
 const styles = StyleSheet.create({
-container: {
-flex: 1,
-backgroundColor: '#fff',
-alignItems: 'center',
-justifyContent: 'center',
-},
+	container: {
+	flex: 1,
+	backgroundColor: '#fff',
+	alignItems: 'center',
+	justifyContent: 'center',
+	},
 });
 ```
 2. Vamos usar uma status bar diferente da que vem no expo para isso:
 	1. Deletamos a tag da status bar ```<StatusBar style="auto" />```
 	2. E deletamos sua importação ``` import { StatusBar } from 'expo-status-bar';```
 3. Adicionar status bar a importação de elementos do react 
-	-  ```import { StatusBar, StyleSheet, Text, View } from 'react-native';``
+	-  ```import { StatusBar, StyleSheet, Text, View } from 'react-native';```
 4. Adicionar safe area view (Status bar do ios)	
 
 ## ```StatusBar``` 
