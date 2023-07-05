@@ -22,8 +22,8 @@ export default function App() {
 
 ### Tags 
 - podem abrir e fechar como a ```<View...> </View>``` 
-- Pode abrir e fechar em uma assinatura, e ser atribuido alguma propriedade como em ```<StatusBar/>```
-- As tags já são componentes 
+- Pode abrir e fechar em uma assinatura, e ser atribuído alguma propriedade como em ```<StatusBar/>```
+- As tags são componentes 
 
 # Organizando hierarquia de arquivos 
 
@@ -215,4 +215,82 @@ cesta: {
 > Essas estilizações não existem no css tradicional, no react não podemos
 passar mais de um parâmetro como no css Ex: padding: 4 10 10 8 , como nesse caso queremos adicionar padding em ambas direções, essa estilização funciona perfeitamente 
 
-# Mudando 
+# Mudando ordenação de componentes para adicionar imagem de logo antes de texto
+
+1. Agrupar em outra view para que as mudanças não afetem a ordenação de outros componentes agrupando esses elementos dentro de uma ```<View></View>```
+2. Fazer o import da imagem ```import logo from '../../assets/logo.png';```
+3. Adicionar ela dentro da view  ```<Image source={logo} />```
+4. Criar 3 estilizações para o nome da fazenda, fazenda(será adicionando na view) e a imagem da fazenda
+
+```javascript
+imagemFazenda: {
+	width: 32,
+	height: 32,
+},
+
+// # Mudando ordenação de componentes para adicionar imagem de logo antes de texto
+fazenda : {
+	flexDirection: "row",
+	paddingVertical: 12,
+},
+
+nomeFazenda: {
+	fontSize: 16,
+	lineHeight: 26,
+	marginLeft: 12,
+},
+```
+- FlexDirection permite que os elementos sejam organizados, por padrão no react ele é column, como queremos que nossos elementos se organizem em linha, usamos ``` "row" ```para isso 
+- Caso fosse feito direto no css, é necessário declarar que o elemento é flex
+	- ```display: flex```
+	- No react todos os elementos já possuem essa propriedade por padrão 
+
+# Adicionando fontes externas 
+
+A documentação do expo possui uma seção sobre adição de fontes direto do google fonts, será utilizado essa solução
+https://docs.expo.dev/develop/user-interface/fonts/#use-a-google-font
+
+1. No terminal dentro da pasta do projeto, instale a fonte executando o seguinte comando 
+```bash
+npx expo install expo-font @expo-google-fonts/montserrat
+```
+> Modificar a ultima palavra ( `montserrat` ) para o nome da fonte desejada 
+
+2. Importamos a classe `useFonts` e os objetos das fontes que queremos importar no arquivo `app.js`
+```javascript
+import {useFonts,
+//Objetos fontes
+Montserrat_400Regular,
+Montserrat_700Bold,
+Montserrat_400Regular_Italic
+} from '@expo-google-fonts/montserrat';
+```
+> Temos que adicionar os nomes específicos de cada fonte que correspondem a o objeto daquela fonte.
+
+3. Dentro  do nossa função padrão de retorno (`export default function App() {}`)Criamos uma variável para o armazenamento da fonte que recebe uma função que tem como parâmetro objetos de fonte
+
+```javascript
+const [fonteCarregada] = useFonts({
+"MontserratRegular": Montserrat_400Regular,
+"MontserratBold": Montserrat_700Bold,
+})
+```
+>`"MontserratRegular"` se refere a nomeação do atributo que iremos adicionar a estilização do elemento.
+
+4. Criar uma condicional que faça com que nossa aplicação não carregue caso as fontes não sejam carregadas
+```javascript
+if (!fonteCarregada){
+return <View />
+}
+```
+5. Aplicar fonte ao texto utilizando a nomeação escolhida nos passos anteriores
+```javascript
+nomeFazenda: {
+	fontFamily: "MontserratRegular",
+},
+```
+-  Caso não seja carregado automaticamente, finalize a aplicação via terminal e inicia novamente
+-  Em fontes que já são bold, delete qualquer configuração de peso Ex: (`fontWeight: "bold",`)
+
+## É possível que a fonte não carregue?
+- Quando instalamos a nova fonte (1ª etapa) todos os arquivos `.ttf` são importados para a pasta `node_modules` do projeto, dessa forma, mesmo que o usuário não tenha internet na hora do acesso esses arquivos serão carregados 
