@@ -53,11 +53,8 @@ const estilos = StyleSheet.create({
     nome: {
         color: "#464646",
         fontSize: 26,
-
-        // Tamanho da linha, define espaçamento em volta da linha 
+        // Altura da linha, define espaçamento vertical
         lineHeight: 42,
-
-   
 
         fontFamily: "MontserratBold",
     },
@@ -77,7 +74,7 @@ const estilos = StyleSheet.create({
         fontSize: 16,
         lineHeight: 26,
         marginLeft: 12,
-        fontFamily: "MontserratRegular",
+        //fontFamily: "MontserratRegular",
     },
 
     descricao: {
