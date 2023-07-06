@@ -1,4 +1,6 @@
 # Etapas de construção do app
 
 [[Criando-componentes]]
-[[Generalizando estilizações]]
+[[Generalizando estilizações (Componente <Texto>)]]
+[[Cesta componentizada]]
+

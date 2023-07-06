@@ -7,7 +7,7 @@ import {useFonts,
   Montserrat_400Regular_Italic 
 } from '@expo-google-fonts/montserrat';
 
-import Cesta from './src/telas/Cesta';
+import Cesta from './src/telas/Cesta/componentes';
 
 export default function App() {
   const [fonteCarregada] = useFonts({
