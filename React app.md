@@ -2,5 +2,5 @@
 
 [[Criando-componentes]]
 [[Generalizando estilizações (Componente <Texto>)]]
-[[Cesta componentizada]]
-
+[[Componentizando código]]
+[[Mocks]]
